@@ -53,7 +53,22 @@ public class Main {
                 }
                 else
                     System.out.println(id+"번 명언은 존재하지 않습니다.");
+            }
 
+            if(cmd.equals("수정")){
+                System.out.print("?id=");
+                int id = scanner.nextInt();
+                Scanner scanner1= new Scanner(System.in);
+
+                System.out.println("명언(기존) : " + list.get(id-1).myeong);
+                System.out.print("명언 : ");
+                String myeong = scanner1.nextLine();
+                list.get(id-1).myeong = myeong;
+
+                System.out.println("작가(기존) : " + list.get(id-1).author);
+                System.out.print("작가 : ");
+                String author = scanner1.nextLine();
+                list.get(id-1).author = author;
             }
         }
     }
@@ -76,4 +91,14 @@ class Myeongeon {
 }
 
 
+//        명령) 수정?id=2
+//        명언(기존) : 과거에 집착하지 마라.
+//        명언 : 현재와 자신을 사랑하라.
+//        작가(기존) : 작자미상
+//        작가 : 홍길동
+//        명령) 목록
+//        번호 / 작가 / 명언
+//        ----------------------
+//        2 / 홍길동 / 현재와 자신을 사랑하라.
+//        명령) 종료
 
