@@ -10,6 +10,7 @@ public class Main {
         Scanner  scanner= new Scanner(System.in);
         ArrayList<Myeongeon> list = new ArrayList<Myeongeon>();
         int num = 1;
+        int []checkexist = new int[100];
 
 
         while(true){
@@ -28,7 +29,9 @@ public class Main {
 
                 list.add(new Myeongeon(num,myeong,author));
                 System.out.println(num + "번 명언이 등록되었습니다.");
+                checkexist[num-1]=1;
                 num++;
+
             }
 
             if(cmd.equals("목록")){
@@ -43,8 +46,13 @@ public class Main {
                 System.out.print("?id=");
                 int id = scanner.nextInt();
 
-                list.remove(id-1);
-                System.out.println(id+"번 명언이 삭제되었습니다.");
+                if(checkexist[id-1]==1){
+                    list.remove(id-1);
+                    System.out.println(id+"번 명언이 삭제되었습니다.");
+                    checkexist[id-1]=0;
+                }
+                else
+                    System.out.println(id+"번 명언은 존재하지 않습니다.");
 
             }
         }
@@ -66,4 +74,6 @@ class Myeongeon {
         System.out.println(num + " / " + myeong + " / " + author);
     }
 }
+
+
 
