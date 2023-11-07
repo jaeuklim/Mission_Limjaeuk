@@ -25,7 +25,7 @@ public class Main {
                 System.out.print("작가 : ");
                 String author = scanner.nextLine();
 
-                list.add(new Myeongeon(myeong,author));
+                list.add(new Myeongeon(num,myeong,author));
                 System.out.println(num + "번 명언이 등록되었습니다.");
                 num++;
 
@@ -36,12 +36,13 @@ public class Main {
 }
 
 class Myeongeon {
+    int num;
     String Myeong;
     String author;
 
-    Myeongeon(String myeong, String author){
+    Myeongeon(int num, String myeong, String author){
+        this.num = num;
         this.Myeong = myeong;
         this.author = author;
     }
-
 }
