@@ -9,6 +9,7 @@ public class Main {
 
         Scanner  scanner= new Scanner(System.in);
         ArrayList<Myeongeon> list = new ArrayList<Myeongeon>();
+        int num = 1;
 
         while(true){
             System.out.print("명령) ");
@@ -25,6 +26,8 @@ public class Main {
                 String author = scanner.nextLine();
 
                 list.add(new Myeongeon(myeong,author));
+                System.out.println(num + "번 명언이 등록되었습니다.");
+                num++;
 
             }
         }
