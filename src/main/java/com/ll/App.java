@@ -1,5 +1,10 @@
 package com.ll;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -72,6 +77,23 @@ class App {
                 System.out.print("작가 : ");
                 String author = scanner1.nextLine();
                 list.get(id - 1).author = author;
+            }
+
+            if (cmd.equals("빌드")) {
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+                // Java 객체를 JSON 문자열로 변환
+                String json = gson.toJson(list);
+
+                try {
+                    // JSON 데이터를 파일에 쓰기
+                    FileWriter writer = new FileWriter("data.json");
+                    writer.write(json);
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("data.json 파일의 내용이 갱신되었습니다.");
             }
         }
     }
