@@ -11,6 +11,7 @@ public class Main {
         ArrayList<Myeongeon> list = new ArrayList<Myeongeon>();
         int num = 1;
 
+
         while(true){
             System.out.print("명령) ");
             String cmd = scanner.nextLine();
@@ -36,11 +37,17 @@ public class Main {
 
                 for(int i = list.size()-1; i>=0; i--)
                     list.get(i).get();
+            }
 
+            if(cmd.equals("삭제")){
+                System.out.print("?id=");
+                int id = scanner.nextInt();
+
+                list.remove(id-1);
+                System.out.println(id+"번 명언이 삭제되었습니다.");
 
             }
         }
-
     }
 }
 
@@ -49,30 +56,14 @@ class Myeongeon {
     String myeong;
     String author;
 
-    Myeongeon(int num, String myeong, String author){
+    Myeongeon(int num, String myeong, String author) {
         this.num = num;
         this.myeong = myeong;
         this.author = author;
     }
 
-    void get(){
+    void get() {
         System.out.println(num + " / " + myeong + " / " + author);
     }
 }
-//
-//목록
-//        == 명언 앱 ==
-//        명령) 등록
-//        명언 : 현재를 사랑하라.
-//        작가 : 작자미상
-//        1번 명언이 등록되었습니다.
-//        명령) 등록
-//        명언 : 현재를 사랑하라.
-//        작가 : 작자미상
-//        2번 명언이 등록되었습니다.
-//        명령) 목록
-//        번호 / 작가 / 명언
-//        ----------------------
-//        2 / 작자미상 / 과거에 집착하지 마라.
-//        1 / 작자미상 / 현재를 사랑하라.
-//        명령) 종료
+
